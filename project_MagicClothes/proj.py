@@ -50,7 +50,7 @@ def call_img2img_api(payload):
 
 if __name__ == '__main__':
     # ControlNet parameters
-    controlnet_image = encode_file_to_base64(r"C:/Project_MagicClothes/S__18743301.jpg")
+    controlnet_image = encode_file_to_base64(r"C:/Auto1111/project/S__18743301.jpg")
     # controlnet_module = "openpose"  # Ensure this matches your ControlNet module
     # controlnet_model = "controlnet11Models_openpose"  # Ensure this matches the actual model file name
     controlnet_module = "depth"  # Ensure this matches your ControlNet module
@@ -86,7 +86,7 @@ if __name__ == '__main__':
 
     # Simplified img2img payload with ControlNet
     init_images = [
-        encode_file_to_base64(r"C:/Project_MagicClothes/S__18743301.jpg"),
+        encode_file_to_base64(r"C:/Auto1111/project/S__18743301.jpg"),
     ]
     batch_size = 2
     img2img_payload = {
