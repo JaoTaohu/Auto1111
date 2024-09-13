@@ -50,49 +50,49 @@ def call_img2img_api(payload):
 
 if __name__ == '__main__':
     # ControlNet parameters
-    controlnet_image = encode_file_to_base64(r"C:/Auto1111/project/S__18743301.jpg")
-    # controlnet_module = "openpose"  # Ensure this matches your ControlNet module
-    # controlnet_model = "controlnet11Models_openpose"  # Ensure this matches the actual model file name
-    controlnet_module = "depth"  # Ensure this matches your ControlNet module
-    controlnet_model = "controlnet11Models_depth"  # Ensure this matches the actual model file name
+    controlnet_image = encode_file_to_base64(r"C:/Auto1111/project_MagicClothes/S__18743301.jpg")
+    controlnet_module = "openpose"  # Ensure this matches your ControlNet module
+    controlnet_model = "controlnet11Models_openpose"  # Ensure this matches the actual model file name
+    # controlnet_module = "depth"  # Ensure this matches your ControlNet module
+    # controlnet_model = "controlnet11Models_depth"  # Ensure this matches the actual model file name
 
-    # Simplified txt2img payload with ControlNet
-    txt2img_payload = {
-        "prompt": "masterpiece, (best quality:1.1), 1girl <lora:lora_model:1>",
-        "negative_prompt": "",
-        "seed": 10,
-        "steps": 20,
-        "width": 512,
-        "height": 512,
-        "cfg_scale": 7,
-        "sampler_name": "DPM++ 2M",
-        "n_iter": 1,
-        "batch_size": 1,
-        "alwayson_scripts": {
-            "controlnet": {  # Use the correct key for ControlNet
-                "args": [
-                    {
-                        "enabled": True,
-                        "image": controlnet_image,
-                        "module": controlnet_module,
-                        "model": controlnet_model,
-                    }
-                ]
-            }
-        }
-    }
-    print("txt2img_payload:", json.dumps(txt2img_payload, indent=2))  # Log the payload
-    call_txt2img_api(txt2img_payload)
+    # # Simplified txt2img payload with ControlNet
+    # txt2img_payload = {
+    #     "prompt": "masterpiece, (best quality:1.1), 1man <lora:lora_model:1>",
+    #     "negative_prompt": "",
+    #     "seed": 84,
+    #     "steps": 20,
+    #     "width": 512,
+    #     "height": 512,
+    #     "cfg_scale": 7,
+    #     "sampler_name": "DPM++ 2M",
+    #     "n_iter": 1,
+    #     "batch_size": 1,
+    #     "alwayson_scripts": {
+    #         "controlnet": {  # Use the correct key for ControlNet
+    #             "args": [
+    #                 {
+    #                     "enabled": True,
+    #                     "image": controlnet_image,
+    #                     "module": controlnet_module,
+    #                     "model": controlnet_model,
+    #                 }
+    #             ]
+    #         }
+    #     }
+    # }
+    # print("txt2img_payload:", json.dumps(txt2img_payload, indent=2))  # Log the payload
+    # call_txt2img_api(txt2img_payload)
 
     # Simplified img2img payload with ControlNet
     init_images = [
-        encode_file_to_base64(r"C:/Auto1111/project/S__18743301.jpg"),
+        encode_file_to_base64(r"C:/Auto1111/project_MagicClothes/S__18743301.jpg"),
     ]
     batch_size = 2
     img2img_payload = {
-        "prompt": "masterpiece, (best quality:1.1), 1girl <lora:lora_model:1>",
-        "seed": 10,
-        "steps": 20,
+        "prompt": "realistic, (best quality:1.1), man with blue shirt",
+        "seed": 38,
+        "steps": 30,
         "width": 512,
         "height": 512,
         "denoising_strength": 0.5,
